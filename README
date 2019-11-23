@@ -7,8 +7,10 @@ advanced (as of yet), but feel free to use it if you want. :)
 Usage:
 
 Declare an array of struct config_opt, filling it with
-the name of the options, the address to the corresponding variables,
+the names of the options, the address to the corresponding variables,
 and what datatype they are. Finish with a zero element.
+Valid datatypes are:
+DATATYPE_STR, DATATYPE_INT, DATATYPE_FLOAT, and DATATYPE_DOUBLE.
 
 Then, call read_config(filename, opts),
 where filename is the name of the config file and opts is a pointer
