@@ -66,6 +66,7 @@ int read_config(char *filename, struct config_opt *opts)
 
 		if ((opt = strtok(line, "=")) != NULL) {
 			strip_whitespace(&opt);
+			printf("opt=%s\n", opt);
 			int n = find_opt(opt, opts);
 
 			/* Ignore unknown options */
@@ -73,14 +74,15 @@ int read_config(char *filename, struct config_opt *opts)
 				continue;
 			}
 			
-			val = strtok(NULL, "=");
+			val = strtok(NULL, "\n");
 			strip_whitespace(&val);
+			printf("val=%s\n", val);
 
 			int datatype = opts[n].datatype;
 
 			if (datatype == DATATYPE_STRING) {
 				char **p = opts[n].value;
-				*p = val;
+				strcpy(*p, val);
 			} else if (datatype == DATATYPE_INT) {
 				int *p = opts[n].value;
 				*p = strtol(val, NULL, 0);

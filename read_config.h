@@ -1,7 +1,7 @@
 #ifndef READ_CONFIG_H
 #define READ_CONFIG_H
 
-#define DATATYPE_STRING 1
+#define DATATYPE_STR 1
 #define DATATYPE_INT 2
 
 struct config_opt {
