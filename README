@@ -1,0 +1,16 @@
+This is my config parser. There are many like it, but this is mine.
+
+I made this for myself for use in my projects, but feel free to use it
+if you want. :)
+
+Usage:
+
+Declare an array of struct config_opt, filling it with
+
+
+Then, call read_config(char *filename, struct config_opt *opts),
+where filename is the name of the config file and opts is a pointer
+to your array.
+
+The config file must be in the format option=value. Comment lines
+start with a '#'.
