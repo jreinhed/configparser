@@ -1,16 +1,33 @@
 This is my config parser. There are many like it, but this is mine.
+It's so simple, it doesn't even have a name!
 
-I made this for myself for use in my projects, but feel free to use it
-if you want. :)
+I made this for myself for use in my projects, so it's not very
+advanced (as of yet), but feel free to use it if you want. :)
 
 Usage:
 
 Declare an array of struct config_opt, filling it with
+the name of the options, the address to the corresponding variables,
+and what datatype they are. Finish with a zero element.
 
-
-Then, call read_config(char *filename, struct config_opt *opts),
+Then, call read_config(filename, opts),
 where filename is the name of the config file and opts is a pointer
 to your array.
 
 The config file must be in the format option=value. Comment lines
-start with a '#'.
+start with a '#'; in-line comments are not supported (yet).
+
+Example:
+	struct config_opt opts[] = {
+		{"max", &max, DATATYPE_INT},
+		{"name", &name, DATATYPE_STR},
+		{NULL, NULL, 0}
+	};
+	read_config("config", opts);
+
+This will read the file "config", look for an option "max", and
+write the value it finds to the variable "max", treating it as a
+regular integer.
+It will then look for an option "name" and copy the value it finds to
+the variable "name", which must be a pointer to a valid block of memory.
+The parser does not do any boundary checking!
