@@ -17,6 +17,10 @@
 #ifndef CONFIGPARSER_H
 #define CONFIGPARSER_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define DATATYPE_STR    1
 #define DATATYPE_INT    2
 #define DATATYPE_FLOAT  3
@@ -37,5 +41,9 @@ struct config_opt {
  * Returns zero if successful, negative number otherwise.
  */
 int read_config(char *, struct config_opt *);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* CONFIGPARSER_H */
