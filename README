@@ -30,8 +30,11 @@ Example:
 This will read the file "config", look for an option "max", and
 write the value it finds to the variable "max", treating it as a
 regular integer.
-It will then look for an option "name" and copy the value it finds to
-the variable "name", which must be a pointer to a valid block of memory.
-The parser does not allocate any memory.
+It will then look for an option "name" and copy the value it finds (from the
+equals sign to the end of the line) to the variable "name", which must be a
+pointer to a valid block of memory. The parser does not allocate memory.
 
-If an unknown option is read from the config file, the parser ignores it.
+If an unknown option is read from the config file, it will be skipped.
+An option will be processed at most once. This means that if an option is
+defined multiple times in the config file, its value will be taken from
+the first occurrence.
