@@ -32,6 +32,12 @@ int find_opt(char *opt, struct config_opt *opts)
 {
 	int n = 0;
 	while (opts[n].opt_name != NULL) {
+		/* Ignore already processed options */
+		if (opts[n].processed == 1) {
+			n++;
+			continue;
+		}
+
 		if (strcmp(opt, opts[n].opt_name) == 0)
 			return n;
 		else
@@ -72,11 +78,10 @@ int read_config(char *filename, struct config_opt *opts)
 	char *opt, *val;
 	FILE *file = fopen(filename, "r");
 
-	if (file == NULL)
+	if (file == NULL || opts == NULL)
 		return -1;
 
 	while (fgets(line, 2048, file) != NULL) {
-		/* TODO: Allow in-line comments */
 		if (line[0] == '#' || line[0] == '\n')
 			continue;
 
@@ -107,6 +112,8 @@ int read_config(char *filename, struct config_opt *opts)
 				double *p = opts[n].value;
 				*p = strtod(val, NULL);
 			}
+
+			opts[n].processed = 1;
 		}
 	}
 	fclose(file);

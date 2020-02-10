@@ -26,6 +26,7 @@ struct config_opt {
 	char *opt_name;
 	void *value;
 	int datatype;
+	int processed;
 };
 
 /*
