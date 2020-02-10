@@ -28,6 +28,13 @@ struct config_opt {
 	int datatype;
 };
 
+/*
+ * Parse config file.
+ * Arguments:
+ * 	filename - name of config file
+ * 	opts - pointer to array of options
+ * Returns zero if successful, negative number otherwise.
+ */
 int read_config(char *, struct config_opt *);
 
 #endif /* READ_CONFIG_H */

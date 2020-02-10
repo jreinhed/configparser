@@ -16,7 +16,7 @@ Then, call read_config(filename, opts),
 where filename is the name of the config file and opts is a pointer
 to your array.
 
-The config file must be in the format option=value. Comment lines
+The config file must be in the format option=value, one per line. Comment lines
 start with a '#'; in-line comments are not supported (yet).
 
 Example:
@@ -32,4 +32,6 @@ write the value it finds to the variable "max", treating it as a
 regular integer.
 It will then look for an option "name" and copy the value it finds to
 the variable "name", which must be a pointer to a valid block of memory.
-The parser does not do any boundary checking!
+The parser does not allocate any memory.
+
+If an unknown option is read from the config file, the parser ignores it.

@@ -26,7 +26,7 @@
  * Arguments:
  * 	opt - Option name to look for
  * 	opts - Array of options
- * Returns place in array if found, 0 otherwise.
+ * Returns place in array if found, -1 otherwise.
  */
 int find_opt(char *opt, struct config_opt *opts)
 {
