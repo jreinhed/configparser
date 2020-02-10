@@ -19,7 +19,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#include "read_config.h"
+#include "configparser.h"
 
 /*
  * Find an option in the opts array.

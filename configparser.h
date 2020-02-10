@@ -14,8 +14,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef READ_CONFIG_H
-#define READ_CONFIG_H
+#ifndef CONFIGPARSER_H
+#define CONFIGPARSER_H
 
 #define DATATYPE_STR    1
 #define DATATYPE_INT    2
@@ -38,4 +38,4 @@ struct config_opt {
  */
 int read_config(char *, struct config_opt *);
 
-#endif /* READ_CONFIG_H */
+#endif /* CONFIGPARSER_H */
